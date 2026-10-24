@@ -30,17 +30,8 @@ function ErrorMessage({ code }: { code: SearchTermsErrorCode }): JSX.Element {
   } else if (code === 'period_too_recent') {
     return (
       <div>
-        No search terms were found for this period. Please adjust or extend your
-        time range. Check{' '}
-        <a
-          href="https://plausible.io/docs/google-search-console-integration#i-dont-see-google-search-query-data-in-my-dashboard"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:underline text-indigo-700 dark:text-indigo-500"
-        >
-          our documentation
-        </a>{' '}
-        for more details.
+        No search terms were found for this period. Search Console data can
+        take a few days to arrive, so please adjust or extend your time range.
       </div>
     )
   } else {

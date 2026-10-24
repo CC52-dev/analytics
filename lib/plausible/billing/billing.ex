@@ -1,6 +1,6 @@
 defmodule Plausible.Billing do
   @moduledoc """
-  Handles Plausible billing subscription lifecycle events (creation, update, cancellation, payment success),
+  Handles SBC billing subscription lifecycle events (creation, update, cancellation, payment success),
   Paddle API, team assignment, and notification logic. Provides helpers for formatting prices,
   managing subscription status, and updating team-related billing state.
   """
@@ -368,7 +368,7 @@ defmodule Plausible.Billing do
   end
 
   def dashboard_locked_notice_title(), do: "Dashboard locked"
-  def active_grace_period_notice_title(), do: "You have outgrown your Plausible subscription tier"
+  def active_grace_period_notice_title(), do: "You have outgrown your SBC subscription tier"
   def subscription_cancelled_notice_title(), do: "Subscription cancelled"
   def subscription_past_due_notice_title(), do: "Payment failed"
   def subscription_paused_notice_title(), do: "Subscription paused"

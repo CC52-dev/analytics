@@ -7,7 +7,7 @@ defmodule Plausible.Ingestion.Acquisition do
 
   Note it uses priv/ga4-source-categories.csv as a source, which comes from https://support.google.com/analytics/answer/9756891?hl=en.
 
-  Notable differences from GA4 that have been implemented just for Plausible:
+  Notable differences from GA4 that have been implemented just for SBC:
   1. The @custom_source_categories module attribute contains a list of custom source categories that we have manually
   added based on our own judgement and user feedback. For example we group AI assistants (ChatGPT, Claude, Gemini, etc.)
   into their own "AI Assistants" channel.

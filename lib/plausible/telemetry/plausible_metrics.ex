@@ -1,6 +1,6 @@
 defmodule Plausible.PromEx.Plugins.PlausibleMetrics do
   @moduledoc """
-  Custom PromEx plugin for instrumenting code within Plausible app.
+  Custom PromEx plugin for instrumenting code within SBC app.
   """
   use Plausible
   use PromEx.Plugin

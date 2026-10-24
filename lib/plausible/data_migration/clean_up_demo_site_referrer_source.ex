@@ -2,7 +2,7 @@ defmodule Plausible.DataMigration.CleanUpDemoSiteReferrerSource do
   @moduledoc """
   Clean up referrer_source entries for demo site with
   `Direct / None` for value populated by dogfooding
-  Plausible stats.
+  SBC stats.
   """
 
   alias Plausible.IngestRepo

@@ -348,7 +348,7 @@ defmodule Plausible.Stats.Imported do
   # items of either subquery. In practice though, this will give plausible results.
   #
   # We only apply this optimization in cases where we can deterministically ORDER BY. This covers
-  # opening Plausible dashboard but not more complicated use-cases.
+  # opening SBC dashboard but not more complicated use-cases.
   defp paginate_optimization(q, query) do
     if is_map(query.pagination) and can_order_by?(query) do
       n = (query.pagination.limit + query.pagination.offset) * 100

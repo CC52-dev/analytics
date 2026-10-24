@@ -17,7 +17,7 @@ defmodule PlausibleWeb.Plugins.API.Spec do
         }
       ],
       info: %Info{
-        title: "Plausible Plugins API",
+        title: "SBC Plugins API",
         version: "1.0-rc"
       },
       # Populate the paths from a phoenix router

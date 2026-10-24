@@ -1,6 +1,6 @@
 defmodule PlausibleWeb.TrackerPlug do
   @moduledoc """
-  Plug to serve the Plausible tracker script.
+  Plug to serve the SBC tracker script.
   """
 
   import Plug.Conn

@@ -36,6 +36,7 @@ defmodule Plausible.Auth.User do
     field :last_seen, :naive_datetime
     field :theme, Ecto.Enum, values: [:system, :light, :dark]
     field :email_verified, :boolean
+    field :platform_admin, :boolean, default: false
     field :previous_email, :string
 
     # Field for purely informational purposes in CRM context
@@ -87,6 +88,46 @@ defmodule Plausible.Auth.User do
     |> hash_password()
     |> set_email_verification_status()
     |> unique_constraint(:email)
+    |> make_first_user_platform_admin()
+  end
+
+  @doc """
+  Changeset for accounts created by a platform admin from the admin panel.
+  These skip email verification, since the admin vouches for the address.
+  """
+  def admin_create_changeset(attrs) do
+    %Plausible.Auth.User{}
+    |> cast(attrs, @required ++ [:platform_admin])
+    |> validate_required([:name, :email, :password])
+    |> validate_password_length()
+    |> hash_password()
+    |> put_change(:email_verified, true)
+    |> unique_constraint(:email)
+  end
+
+  def admin_update_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name, :email, :platform_admin])
+    |> validate_required([:name, :email])
+    |> unique_constraint(:email)
+  end
+
+  def admin_password_changeset(user, password) do
+    user
+    |> cast(%{password: password}, [:password])
+    |> validate_required([:password])
+    |> validate_password_length()
+    |> hash_password()
+  end
+
+  defp make_first_user_platform_admin(changeset) do
+    prepare_changes(changeset, fn changeset ->
+      if changeset.repo.exists?(Plausible.Auth.User) do
+        changeset
+      else
+        put_change(changeset, :platform_admin, true)
+      end
+    end)
   end
 
   def name_changeset(user, attrs \\ %{}) do

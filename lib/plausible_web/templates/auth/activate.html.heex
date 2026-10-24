@@ -46,9 +46,9 @@
             </.styled_link>
           <% end %>
         </p>
-        <p :if={ee?()}>
+        <p>
           Need help?
-          <.styled_link href="https://plausible.io/contact" new_tab={true}>
+          <.styled_link href={PlausibleWeb.Brand.support_mailto()} new_tab={true}>
             Contact us
           </.styled_link>
         </p>

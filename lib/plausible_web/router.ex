@@ -626,6 +626,18 @@ defmodule PlausibleWeb.Router do
       live "/team/setup", TeamSetup, :setup, as: :team_setup
     end
 
+    live_session :platform_admin, on_mount: PlausibleWeb.Live.Admin.Auth do
+      scope alias: Live.Admin, assigns: %{connect_live_socket: true} do
+        pipe_through [:app_layout, PlausibleWeb.RequireAccountPlug]
+
+        live "/admin", Users, :index, as: :admin
+        live "/admin/users", Users, :index, as: :admin_users
+        live "/admin/users/:id", User, :show, as: :admin_user
+        live "/admin/sites", Sites, :index, as: :admin_sites
+        live "/admin/sites/:id", Site, :show, as: :admin_site
+      end
+    end
+
     get "/sites/new", SiteController, :new
     post "/sites", SiteController, :create_site
     post "/sites/:domain/make-public", SiteController, :make_public

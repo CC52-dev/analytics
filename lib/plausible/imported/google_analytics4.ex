@@ -67,7 +67,7 @@ defmodule Plausible.Imported.GoogleAnalytics4 do
   end
 
   @doc """
-  Imports stats from a Google Analytics 4 property to a Plausible site.
+  Imports stats from a Google Analytics 4 property to a SBC site.
 
   This function fetches Google Analytics 4 reports which are then passed in batches
   to Clickhouse by the `Plausible.Imported.Buffer` process.
@@ -175,7 +175,7 @@ defmodule Plausible.Imported.GoogleAnalytics4 do
       import_id: import_id,
       date: get_date(row),
       source: row.dimensions |> Map.fetch!("sessionSource") |> parse_source(),
-      # GA4 channels map 1-1 to Plausible channels
+      # GA4 channels map 1-1 to SBC channels
       channel: row.dimensions |> Map.fetch!("sessionDefaultChannelGroup"),
       referrer: nil,
       # Only `source` exists in GA4 API

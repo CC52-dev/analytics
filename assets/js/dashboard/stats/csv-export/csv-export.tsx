@@ -119,5 +119,5 @@ function constructFilename(domain: string, dateRange: DateRange) {
   const dateRangeText = Array.isArray(dateRange)
     ? `${dateRange[0]} to ${dateRange[1]}`
     : dateRange
-  return `Plausible export ${domain} ${dateRangeText} .zip`
+  return `SBC export ${domain} ${dateRangeText} .zip`
 }

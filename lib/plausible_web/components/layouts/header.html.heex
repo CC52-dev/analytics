@@ -96,35 +96,16 @@
                     <.dropdown_divider />
                   </div>
                   <.dropdown_item
-                    class="!flex justify-between gap-x-12"
-                    new_tab
-                    href="https://plausible.io/docs"
+                    :if={Plausible.Auth.platform_admin?(@current_user)}
+                    href={~p"/admin"}
                   >
-                    Help center
+                    Admin panel
                   </.dropdown_item>
                   <.dropdown_item
-                    :if={ee?()}
                     class="!flex justify-between gap-x-12"
-                    new_tab
-                    href="https://plausible.io/contact"
+                    href={PlausibleWeb.Brand.support_mailto()}
                   >
                     Contact support
-                  </.dropdown_item>
-                  <.dropdown_item
-                    :if={ee?()}
-                    class="!flex justify-between gap-x-12"
-                    new_tab
-                    href={PlausibleWeb.LayoutView.feedback_link(@current_user)}
-                  >
-                    Feature requests
-                  </.dropdown_item>
-                  <.dropdown_item
-                    :if={ce?()}
-                    class="!flex justify-between gap-x-12"
-                    new_tab
-                    href="https://github.com/plausible/analytics"
-                  >
-                    Github repo
                   </.dropdown_item>
                   <.dropdown_item href="/logout">Log out</.dropdown_item>
                 </:menu>

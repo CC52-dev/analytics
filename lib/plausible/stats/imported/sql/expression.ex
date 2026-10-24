@@ -276,7 +276,7 @@ defmodule Plausible.Stats.Imported.SQL.Expression do
     })
   end
 
-  # Rows imported from Plausible store `imported_locations.region` as ISO 3166-2 code.
+  # Rows imported from SBC store `imported_locations.region` as ISO 3166-2 code.
   # Rows imported from GA4 have `imported_locations.region` set to region name
   # (e.g. "California").
   #

@@ -73,10 +73,6 @@ defmodule Plausible do
   end
 
   def product_name do
-    if ee?() do
-      "Plausible Analytics"
-    else
-      "Plausible CE"
-    end
+    PlausibleWeb.Brand.product_name()
   end
 end

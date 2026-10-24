@@ -294,7 +294,7 @@ defmodule PlausibleWeb.Plugs.AuthorizePublicAPI do
   defp send_error(conn, _, {:error, :missing_api_key}) do
     H.unauthorized(
       conn,
-      "Missing API key. Please use a valid Plausible API key as a Bearer Token."
+      "Missing API key. Please use a valid SBC API key as a Bearer Token."
     )
   end
 
@@ -342,7 +342,7 @@ defmodule PlausibleWeb.Plugs.AuthorizePublicAPI do
   defp send_error(conn, _, {:error, :site_locked}) do
     H.payment_required(
       conn,
-      "This Plausible site is locked due to missing active subscription. In order to access it, the site owner should subscribe to a suitable plan"
+      "This SBC site is locked due to missing active subscription. In order to access it, the site owner should subscribe to a suitable plan"
     )
   end
 

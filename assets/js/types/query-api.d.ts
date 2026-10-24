@@ -179,7 +179,7 @@ export interface QueryApiSchema {
    */
   date_range: DateRangeShorthand | DateTimeRange | DateRange;
   /**
-   * What to group the results by. Same as `property` in Plausible API v1
+   * What to group the results by. Same as `property` in SBC API v1
    */
   dimensions?: Dimensions[];
   /**

@@ -188,14 +188,16 @@ defmodule PlausibleWeb.Components.Generic do
   attr(:class, :string, default: nil)
 
   def docs_info(assigns) do
+    assigns = assign(assigns, :docs_url, PlausibleWeb.Brand.docs_url())
+
     ~H"""
-    <div class={@class}>
+    <div :if={@docs_url} class={@class}>
       <.tooltip enabled?={true} centered?={true}>
         <:tooltip_content>
           <span>Learn more</span>
         </:tooltip_content>
         <a
-          href={"https://plausible.io/docs/#{@slug}"}
+          href={"#{@docs_url}/#{@slug}"}
           rel="noopener noreferrer"
           target="_blank"
           class="flex"

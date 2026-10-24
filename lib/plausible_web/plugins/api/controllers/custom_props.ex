@@ -92,7 +92,7 @@ defmodule PlausibleWeb.Plugins.API.Controllers.CustomProps do
     Errors.error(
       conn,
       402,
-      "#{Plausible.Billing.Feature.Props.display_name()} is part of the Plausible Business plan. To get access to this feature, please upgrade your account."
+      "#{Plausible.Billing.Feature.Props.display_name()} is part of the SBC Business plan. To get access to this feature, please upgrade your account."
     )
   end
 end

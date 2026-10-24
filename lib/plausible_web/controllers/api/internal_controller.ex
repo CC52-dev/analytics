@@ -41,7 +41,7 @@ defmodule PlausibleWeb.Api.InternalController do
       {:error, :upgrade_required} ->
         PlausibleWeb.Api.Helpers.payment_required(
           conn,
-          "This feature is part of the Plausible Business plan. To get access to this feature, please upgrade your account"
+          "This feature is part of the SBC Business plan. To get access to this feature, please upgrade your account"
         )
 
       :error ->

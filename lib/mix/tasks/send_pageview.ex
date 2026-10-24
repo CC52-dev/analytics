@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.SendPageview do
   @moduledoc """
   It's often necessary to generate fake events for development and testing purposes. This Mix Task provides a quick and easy
-  way to generate a pageview or custom event, either in your development environment or a remote Plausible instance.
+  way to generate a pageview or custom event, either in your development environment or a remote SBC instance.
 
   See Mix.Tasks.SendPageview.usage/1 for more detailed documentation.
   """

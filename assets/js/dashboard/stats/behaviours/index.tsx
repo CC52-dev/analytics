@@ -57,30 +57,9 @@ export const BEHAVIOURS_METRICS_HIDDEN_ON_MOBILE: Metric[] = [
   'average_revenue'
 ]
 
-/*global BUILD_EXTRA*/
-/*global require*/
-function maybeRequireFunnels(): {
-  default: ComponentType<{ funnelName: string }> | null
-} {
-  if (BUILD_EXTRA) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require('../../extra/funnel')
-  } else {
-    return { default: null }
-  }
-}
-
-function maybeRequireExploration(): { default: ComponentType | null } {
-  if (BUILD_EXTRA) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require('../../extra/exploration')
-  } else {
-    return { default: null }
-  }
-}
-
-const Funnel = maybeRequireFunnels().default
-const FunnelExploration = maybeRequireExploration().default
+// Funnels and journey exploration are proprietary upstream modules that are not part of this build
+const Funnel = null as ComponentType<{ funnelName: string }> | null
+const FunnelExploration = null as ComponentType | null
 
 function singleGoalFilterApplied(dashboardState: DashboardState): boolean {
   const goalFilter = getGoalFilter(dashboardState)
@@ -471,13 +450,7 @@ function Behaviours({
   function featureUnavailable(): ReactNode {
     return (
       <div className="flex-1 flex flex-col items-center justify-center font-medium text-gray-500 dark:text-gray-400">
-        <span>This report is available in Plausible Cloud</span>
-        <a
-          className="flex items-center gap-x-1.5 mt-4 button px-2 sm:px-4"
-          href="https://plausible.io"
-        >
-          Learn more
-        </a>
+        <span>This report is not available</span>
       </div>
     )
   }

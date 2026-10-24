@@ -218,7 +218,7 @@ defmodule PlausibleWeb.Api.StatsController do
         {:error, :upgrade_required} ->
           H.payment_required(
             conn,
-            "#{Plausible.Billing.Feature.Funnels.display_name()} is part of the Plausible Business plan. To get access to this feature, please upgrade your account."
+            "#{Plausible.Billing.Feature.Funnels.display_name()} is part of the SBC Business plan. To get access to this feature, please upgrade your account."
           )
 
         _ ->

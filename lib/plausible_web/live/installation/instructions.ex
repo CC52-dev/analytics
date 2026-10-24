@@ -80,7 +80,7 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
         </:step>
         <:step>
           <.styled_link href="https://plausible.io/gtm-template" new_tab={true} external_icon={false}>
-            Install the Plausible template in GTM.
+            Install the SBC template in GTM.
           </.styled_link>
         </:step>
         <:step>Paste your Script ID into the template.</:step>
@@ -175,7 +175,7 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
 
   defp render_snippet(tracker_script_configuration) do
     """
-    <!-- Privacy-friendly analytics by Plausible -->
+    <!-- SBC Analytics -->
     <script async src="#{tracker_url(tracker_script_configuration)}"></script>
     <script>
       window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};

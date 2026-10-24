@@ -39,7 +39,7 @@ defmodule PlausibleWeb.Live.TrackingSettings do
 
       <.tile docs={if ce?(), do: "plausible-script"}>
         <:title>Tracking</:title>
-        <:subtitle>Manage how Plausible collects data for this site.</:subtitle>
+        <:subtitle>Manage how SBC collects data for this site.</:subtitle>
 
         <.settings_rows>
           <.settings_row

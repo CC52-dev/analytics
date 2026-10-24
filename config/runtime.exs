@@ -103,14 +103,18 @@ super_admin_user_ids =
 
 env = get_var_from_path_or_env(config_dir, "ENVIRONMENT", "prod")
 mailer_adapter = get_var_from_path_or_env(config_dir, "MAILER_ADAPTER", "Bamboo.Mua")
-mailer_email = get_var_from_path_or_env(config_dir, "MAILER_EMAIL", "plausible@#{base_url.host}")
+mailer_email = get_var_from_path_or_env(config_dir, "MAILER_EMAIL", "noreply@#{base_url.host}")
+mailer_name = get_var_from_path_or_env(config_dir, "MAILER_NAME", "SBC Analytics")
+mailer_email = {mailer_name, mailer_email}
 
-mailer_email =
-  if mailer_name = get_var_from_path_or_env(config_dir, "MAILER_NAME") do
-    {mailer_name, mailer_email}
-  else
-    mailer_email
-  end
+config :plausible, PlausibleWeb.Brand,
+  name: get_var_from_path_or_env(config_dir, "BRAND_NAME"),
+  product_name: get_var_from_path_or_env(config_dir, "BRAND_PRODUCT_NAME"),
+  legal_name: get_var_from_path_or_env(config_dir, "BRAND_LEGAL_NAME"),
+  support_email: get_var_from_path_or_env(config_dir, "BRAND_SUPPORT_EMAIL"),
+  website_url: get_var_from_path_or_env(config_dir, "BRAND_WEBSITE_URL"),
+  docs_url: get_var_from_path_or_env(config_dir, "BRAND_DOCS_URL"),
+  source_code_url: get_var_from_path_or_env(config_dir, "SOURCE_CODE_URL")
 
 app_version = get_var_from_path_or_env(config_dir, "APP_VERSION", "0.0.1")
 

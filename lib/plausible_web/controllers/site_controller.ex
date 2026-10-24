@@ -11,6 +11,7 @@ defmodule PlausibleWeb.SiteController do
   @special_cased_actions @unrestricted_actions ++ @destructive_actions
 
   plug(PlausibleWeb.RequireAccountPlug)
+  plug(:require_platform_admin when action in [:new, :create_site])
 
   plug(
     PlausibleWeb.Plugs.AuthorizeSiteAccess,
@@ -65,6 +66,17 @@ defmodule PlausibleWeb.SiteController do
           {:error, :no_access} ->
             render_new_site_form(conn, flow, changeset: changeset)
         end
+    end
+  end
+
+  defp require_platform_admin(conn, _opts) do
+    if Plausible.Auth.platform_admin?(conn.assigns.current_user) do
+      conn
+    else
+      conn
+      |> put_flash(:error, "Contact #{PlausibleWeb.Brand.support_email()} to add a new website")
+      |> redirect(to: ~p"/sites")
+      |> halt()
     end
   end
 
@@ -267,7 +279,7 @@ defmodule PlausibleWeb.SiteController do
       Repo.delete!(site.google_auth)
     end
 
-    put_flash(conn, :success, "Google account unlinked from Plausible")
+    put_flash(conn, :success, "Google account unlinked from SBC")
     redirect(conn, to: ~p"/#{site.domain}/settings/integrations")
   end
 

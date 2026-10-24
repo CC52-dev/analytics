@@ -1,6 +1,6 @@
 defmodule PlausibleWeb.Live.Installation do
   @moduledoc """
-  User assistance module around Plausible installation instructions/onboarding
+  User assistance module around SBC installation instructions/onboarding
   """
 
   use Plausible
@@ -83,9 +83,9 @@ defmodule PlausibleWeb.Live.Installation do
 
     {heading, subtitle} =
       if flow == Flows.review() do
-        {"Review installation", "See how to install Plausible on your site."}
+        {"Review installation", "See how to install SBC on your site."}
       else
-        {"Add tracking to your site", "Install Plausible on #{site.domain} to start seeing data."}
+        {"Add tracking to your site", "Install SBC on #{site.domain} to start seeing data."}
       end
 
     {:ok,
@@ -128,7 +128,7 @@ defmodule PlausibleWeb.Live.Installation do
               <.spinner class="size-5" />
               <div class="text-gray-500 dark:text-gray-400 text-base">
                 {if(@flow == Flows.review(),
-                  do: "Checking how Plausible is integrated into your site...",
+                  do: "Checking how SBC is integrated into your site...",
                   else: "Checking how your site is built..."
                 )}
               </div>

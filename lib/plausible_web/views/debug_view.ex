@@ -5,7 +5,7 @@ defmodule PlausibleWeb.DebugView do
     phoenix_controller_name
     |> String.to_existing_atom()
     |> Module.split()
-    |> Enum.drop_while(&String.starts_with?(&1, "Plausible"))
+    |> Enum.drop_while(&String.starts_with?(&1, "SBC"))
     |> Enum.join(".")
   end
 end

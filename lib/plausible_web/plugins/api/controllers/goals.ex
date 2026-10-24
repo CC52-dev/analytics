@@ -163,7 +163,7 @@ defmodule PlausibleWeb.Plugins.API.Controllers.Goals do
     Errors.error(
       conn,
       402,
-      "#{Plausible.Billing.Feature.RevenueGoals.display_name()} is part of the Plausible Business plan. To get access to this feature, please upgrade your account."
+      "#{Plausible.Billing.Feature.RevenueGoals.display_name()} is part of the SBC Business plan. To get access to this feature, please upgrade your account."
     )
   end
 end

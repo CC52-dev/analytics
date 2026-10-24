@@ -58,5 +58,5 @@ defmodule PlausibleWeb.Flows do
   def onboarding_steps, do: [add_site_step(), installation_step()]
 
   def add_site_step, do: "Add site info"
-  def installation_step, do: "Install Plausible"
+  def installation_step, do: "Install SBC"
 end

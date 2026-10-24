@@ -10,13 +10,13 @@ defmodule PlausibleWeb.Components.Layout do
     <img
       src={logo_path("logo_dark.svg")}
       class={[@class, "hidden dark:inline"]}
-      alt="Plausible logo"
+      alt="SBC logo"
       loading="lazy"
     />
     <img
       src={logo_path("logo_light.svg")}
       class={[@class, "inline dark:hidden"]}
-      alt="Plausible logo"
+      alt="SBC logo"
       loading="lazy"
     />
     """

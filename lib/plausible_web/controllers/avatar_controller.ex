@@ -3,13 +3,13 @@ defmodule PlausibleWeb.AvatarController do
   This module proxies requests to BASE_URL/avatar/:hash to www.gravatar.com/avatar/:hash.
 
   The purpose is to make use of Gravatar's convenient avatar service without exposing information
-  that could be used for tracking the Plausible user. Compared to requesting the Gravatar directly
-  from the browser, this proxy module protects the Plausible user from disclosing to Gravatar:
+  that could be used for tracking the SBC user. Compared to requesting the Gravatar directly
+  from the browser, this proxy module protects the SBC user from disclosing to Gravatar:
   1. The client IP address
   2. User-Agent
   3. Referer header which can be used to track which site the user is visiting (i.e. plausible.io or self-hosted URL)
 
-  The downside is the added latency from the request having to go through the Plausible server, rather than contacting the
+  The downside is the added latency from the request having to go through the SBC server, rather than contacting the
   local CDN server operated by Gravatar's service.
   """
   use PlausibleWeb, :controller

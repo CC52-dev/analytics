@@ -471,10 +471,10 @@ defmodule PlausibleWeb.StatsController do
   end
 
   defp title(%{path_info: ["plausible.io"]}, _) do
-    "Plausible Analytics: Live Demo"
+    "SBC Analytics"
   end
 
   defp title(_conn, site) do
-    "Plausible · " <> site.domain
+    "SBC Analytics · " <> site.domain
   end
 end

@@ -84,15 +84,20 @@ defmodule PlausibleWeb.Live.Sites do
           not (sites.entries != [] and (Teams.setup?(current_team) or has_sites?)) and
             filter_text == ""
 
-        empty_state_title =
-          if Teams.setup?(current_team) do
-            "Add your first team site"
-          else
-            "Add your first personal site"
-          end
+        {empty_state_title, empty_state_description} =
+          cond do
+            not Plausible.Auth.platform_admin?(socket.assigns.current_user) ->
+              {"No websites yet",
+               "You don't have access to any websites yet. Contact #{PlausibleWeb.Brand.support_email()} to get set up."}
 
-        empty_state_description =
-          "Collect simple, privacy-friendly stats to better understand your audience."
+            Teams.setup?(current_team) ->
+              {"Add your first team site",
+               "Collect simple, privacy-friendly stats to better understand your audience."}
+
+            true ->
+              {"Add your first site",
+               "Collect simple, privacy-friendly stats to better understand your audience."}
+          end
 
         assign(socket,
           is_empty_state?: is_empty_state?,
@@ -141,7 +146,7 @@ defmodule PlausibleWeb.Live.Sites do
           <.sort_dropdown index_state={@index_state} />
 
           <PrimaDropdown.dropdown
-            :if={@consolidated_view_cta_dismissed?}
+            :if={@consolidated_view_cta_dismissed? and Plausible.Auth.platform_admin?(@current_user)}
             id="add-site-dropdown"
           >
             <PrimaDropdown.dropdown_trigger id="add-site-dropdown-trigger" theme="primary">
@@ -167,7 +172,7 @@ defmodule PlausibleWeb.Live.Sites do
           </PrimaDropdown.dropdown>
 
           <.button_link
-            :if={!@consolidated_view_cta_dismissed?}
+            :if={!@consolidated_view_cta_dismissed? and Plausible.Auth.platform_admin?(@current_user)}
             href={~p"/sites/new?#{[flow: PlausibleWeb.Flows.provisioning()]}"}
           >
             <Heroicons.plus class="size-4" /> Add website
@@ -199,6 +204,7 @@ defmodule PlausibleWeb.Live.Sites do
         </p>
         <div class="flex flex-col sm:flex-row gap-3 mt-6">
           <.button_link
+            :if={Plausible.Auth.platform_admin?(@current_user)}
             href={"/sites/new?flow=#{PlausibleWeb.Flows.provisioning()}"}
             theme="primary"
           >

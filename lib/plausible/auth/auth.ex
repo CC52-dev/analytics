@@ -281,6 +281,13 @@ defmodule Plausible.Auth do
     def super_admin?(_), do: always(false)
   end
 
+  @doc """
+  Platform admins run this instance: they manage every user, site and
+  site permission from the admin panel at `/admin`.
+  """
+  def platform_admin?(%Auth.User{platform_admin: true}), do: true
+  def platform_admin?(_), do: false
+
   @spec list_api_keys(Auth.User.t(), Teams.Team.t() | nil) :: [Auth.ApiKey.t()]
   def list_api_keys(user, team) do
     query =

@@ -50,7 +50,6 @@ COPY assets ./assets
 COPY tracker ./tracker
 COPY priv ./priv
 COPY lib ./lib
-COPY extra ./extra
 
 RUN npm run deploy --prefix ./tracker && \
   mix assets.deploy && \
@@ -64,7 +63,7 @@ RUN mix release plausible
 
 # Main Docker Image
 FROM alpine:3.23.5@sha256:fd791d74b68913cbb027c6546007b3f0d3bc45125f797758156952bc2d6daf40
-LABEL maintainer="plausible.io <hello@plausible.io>"
+LABEL maintainer="SBC CREATIVE LLC <admin@sbc-creative.com>"
 
 ARG BUILD_METADATA={}
 ENV BUILD_METADATA=$BUILD_METADATA

@@ -2,7 +2,7 @@ defmodule PlausibleWeb.Favicon do
   @referer_domains_file "priv/referer_favicon_domains.json"
   @moduledoc """
   A Plug that fetches favicon images from DuckDuckGo and returns them
-  to the Plausible frontend.
+  to the SBC frontend.
 
   The proxying is there so we can reduce the number of third-party domains that
   the browser clients need to connect to. Our goal is to have 0 third-party domain

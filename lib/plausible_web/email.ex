@@ -17,7 +17,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("activation-email")
-    |> subject("#{code} is your Plausible email verification code")
+    |> subject("#{code} is your SBC email verification code")
     |> render("activation_email.html", user: user, code: code)
   end
 
@@ -25,7 +25,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("welcome-email")
-    |> subject("Welcome to Plausible")
+    |> subject("Welcome to SBC")
     |> render("welcome_email.html", user: user)
   end
 
@@ -64,7 +64,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("check-stats-email")
-    |> subject("How Plausible is different")
+    |> subject("How SBC is different")
     |> render("check_stats_email.html", user: user)
   end
 
@@ -72,7 +72,7 @@ defmodule PlausibleWeb.Email do
     priority_email(%{layout: nil})
     |> to(email)
     |> tag("password-reset-email")
-    |> subject("Plausible password reset")
+    |> subject("SBC password reset")
     |> render("password_reset_email.html", reset_link: reset_link)
   end
 
@@ -80,7 +80,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-enabled-email")
-    |> subject("Plausible Two-Factor Authentication enabled")
+    |> subject("SBC Two-Factor Authentication enabled")
     |> render("two_factor_enabled_email.html", user: user)
   end
 
@@ -88,7 +88,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-disabled-email")
-    |> subject("Plausible Two-Factor Authentication disabled")
+    |> subject("SBC Two-Factor Authentication disabled")
     |> render("two_factor_disabled_email.html", user: user)
   end
 
@@ -96,7 +96,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("trial-one-week-reminder")
-    |> subject("Your Plausible trial ends in one week")
+    |> subject("Your SBC trial ends in one week")
     |> render("trial_one_week_reminder.html", user: user, team: team)
   end
 
@@ -104,7 +104,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("trial-ending-tomorrow")
-    |> subject("Your Plausible trial ends tomorrow")
+    |> subject("Your SBC trial ends tomorrow")
     |> render("trial_ending_tomorrow.html",
       user: user,
       team: team,
@@ -118,7 +118,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("trial-ending-today")
-    |> subject("Your Plausible trial ends today")
+    |> subject("Your SBC trial ends today")
     |> render("trial_ending_today.html",
       user: user,
       team: team,
@@ -132,7 +132,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("trial-over-email")
-    |> subject("Your Plausible trial has expired")
+    |> subject("Your SBC trial has expired")
     |> render("trial_over_email.html",
       user: user,
       team: team,
@@ -183,7 +183,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("over-limit")
-    |> subject("[Action required] You have outgrown your Plausible subscription tier")
+    |> subject("[Action required] You have outgrown your SBC subscription tier")
     |> render("over_limit.html", %{
       user: user,
       team: team,
@@ -206,7 +206,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("dashboard-locked")
-    |> subject("[Action required] Your Plausible dashboard is now locked")
+    |> subject("[Action required] Your SBC dashboard is now locked")
     |> render("dashboard_locked.html", %{
       user: user,
       team: team,
@@ -221,7 +221,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(owner)
     |> tag("yearly-renewal")
-    |> subject("Your Plausible subscription is up for renewal")
+    |> subject("Your SBC subscription is up for renewal")
     |> render("yearly_renewal_notification.html", %{
       user: owner,
       team: team,
@@ -242,7 +242,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(owner)
     |> tag("yearly-expiration")
-    |> subject("Your Plausible subscription is about to expire")
+    |> subject("Your SBC subscription is about to expire")
     |> render("yearly_expiration_notification.html", %{
       user: owner,
       team: team,
@@ -255,7 +255,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user.email)
     |> tag("cancelled-email")
-    |> subject("Where did Plausible fall short?")
+    |> subject("Where did SBC fall short?")
     |> render("cancellation_email.html", user: user)
   end
 
@@ -581,7 +581,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("deletion-full-notice")
-    |> subject("Your Plausible dashboards and stats will be deleted in #{days} days")
+    |> subject("Your SBC dashboards and stats will be deleted in #{days} days")
     |> render("deletion_full_notice_email.html",
       user: user,
       team: team,
@@ -598,7 +598,7 @@ defmodule PlausibleWeb.Email do
     |> to(user)
     |> tag("deletion-reminder")
     |> subject(
-      "Final notice: your Plausible dashboards and stats will be deleted in #{days} days"
+      "Final notice: your SBC dashboards and stats will be deleted in #{days} days"
     )
     |> render("deletion_reminder_email.html",
       user: user,

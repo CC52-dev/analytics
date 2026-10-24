@@ -202,13 +202,7 @@ const SaveAsSegmentAction = () => {
   const { setModal } = useRoutelessModalsContext()
 
   return (
-    <ActionTooltip
-      label="Save as segment"
-      docsLink={{
-        href: 'https://plausible.io/docs/filters-segments#how-to-save-a-segment',
-        label: 'Learn more about segments'
-      }}
-    >
+    <ActionTooltip label="Save as segment">
       <AppNavigationLink
         aria-label="Save as segment"
         className={actionClassName}

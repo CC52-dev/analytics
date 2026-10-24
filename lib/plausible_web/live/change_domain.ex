@@ -77,7 +77,7 @@ defmodule PlausibleWeb.Live.ChangeDomain do
     <.focus_box>
       <:title>Change your website domain</:title>
       <:subtitle>
-        If you have changed the domain name of your site and would like your new domain name to be displayed in your Plausible dashboard, you can do so here. You won't lose any of your historical stats in this process.
+        If you have changed the domain name of your site and would like your new domain name to be displayed in your SBC dashboard, you can do so here. You won't lose any of your historical stats in this process.
       </:subtitle>
 
       <:footer>
@@ -151,8 +151,8 @@ defmodule PlausibleWeb.Live.ChangeDomain do
 
             <p class="mt-4 text-sm">
               Additional action may be required. If you're using our legacy snippet (i.e. your
-              Plausible snippet includes the data-domain attribute) or the NPM package, you must
-              also update the site domain of your Plausible installation within 72 hours to match
+              SBC snippet includes the data-domain attribute) or the NPM package, you must
+              also update the site domain of your SBC installation within 72 hours to match
               the updated domain in order to guarantee continuous tracking.
             </p>
           </:failed>
@@ -227,7 +227,7 @@ defmodule PlausibleWeb.Live.ChangeDomain do
       ~H"""
       <p class="mt-4 text-sm">
         We've detected you're using our WordPress plugin. To guarantee continuous tracking,
-        you must also update the site domain in your Plausible Wordpress Plugin settings
+        you must also update the site domain in your SBC Wordpress Plugin settings
         within 72 hours to match the updated domain.
       </p>
       """
@@ -237,7 +237,7 @@ defmodule PlausibleWeb.Live.ChangeDomain do
       ~H"""
       <p class="mt-4 text-sm">
         We've detected you're using our legacy script. This means that you'll also need
-        to update the site domain of your Plausible installation within 72 hours to guarantee
+        to update the site domain of your SBC installation within 72 hours to guarantee
         continuous tracking. The easiest way to fix that is to simply follow your
         <.styled_link
           new_tab
@@ -254,7 +254,7 @@ defmodule PlausibleWeb.Live.ChangeDomain do
       ~H"""
       <p class="mt-4 text-sm">
         We've detected you're using our @plausible-analytics/tracker module. This means that you'll also need
-        to update the site domain of your Plausible installation within 72 hours to
+        to update the site domain of your SBC installation within 72 hours to
         guarantee continuous tracking.
       </p>
       """
@@ -304,9 +304,9 @@ defmodule PlausibleWeb.Live.ChangeDomain do
         </span>
       </div>
       <p class="mt-4 text-sm">
-        If you're using our legacy snippet (i.e. your Plausible snippet includes the
+        If you're using our legacy snippet (i.e. your SBC snippet includes the
         data-domain attribute) or the NPM package, you must also update the site domain
-        of your Plausible installation within 72 hours to match the updated domain in
+        of your SBC installation within 72 hours to match the updated domain in
         order to guarantee continuous tracking.
       </p>
       """

@@ -322,7 +322,7 @@ defmodule Mix.Tasks.CreatePaddleProdPlans do
       plan["monthly_pageview_limit"]
       |> PlausibleWeb.StatsView.large_number_format(capitalize_k?: true)
 
-    "Plausible #{kind} #{type} Plan (#{volume})"
+    "SBC #{kind} #{type} Plan (#{volume})"
   end
 
   def curl_quietly(cmd) do
