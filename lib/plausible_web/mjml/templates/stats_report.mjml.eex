@@ -1,4 +1,4 @@
-<% use SBC %>
+<% use Plausible %>
 <mjml>
   <mj-head>
     <mj-attributes>
